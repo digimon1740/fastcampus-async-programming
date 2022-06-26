@@ -40,7 +40,7 @@ fun main() {
 
     barista.addObserver(customer)
     barista.addObserver(customer2)
-    barista.addObserver(customer3)
+    barista.addObserver(customer)
 
     barista.makeCoffee()
 }

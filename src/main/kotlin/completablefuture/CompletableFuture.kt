@@ -1,7 +1,7 @@
 package completablefuture
 
 import future.sum
-import java.util.concurrent.*
+import java.util.concurrent.CompletableFuture
 
 fun main() {
     val completableFuture = CompletableFuture.supplyAsync {
@@ -10,12 +10,12 @@ fun main() {
     }
 
     println("계산 시작")
-    completableFuture.thenApplyAsync(::println) // 논블로킹으로 동작
+    //completableFuture.thenApplyAsync(::println) // 논블로킹으로 동작
 
-//    val result = completableFuture.get() // 블로킹으로 동작
-//    println(result)
+    val result = completableFuture.get() // 블로킹으로 동작
+    println(result)
 
-    while (!completableFuture.isDone) {
+    while (!completableFuture.isCompletedExceptionally) {
         Thread.sleep(500)
         println("계산 결과를 집계 중입니다.")
     }
