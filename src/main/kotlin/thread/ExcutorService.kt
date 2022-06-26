@@ -11,7 +11,7 @@ fun main() {
                 println("current-thread-name : ${Thread.currentThread().name}")
             }
         }
-    } catch (e: Exception) {
+    } finally {
         pool.shutdown()
     }
     println("current-thread-name : ${Thread.currentThread().name}")
